@@ -1,0 +1,13 @@
+Function Get-SaveFileName($initialDirectory)
+        {   
+         [System.Reflection.Assembly]::LoadWithPartialName("System.windows.forms") |
+         Out-Null
+
+         $SaveFileDialog = New-Object System.Windows.Forms.SaveFileDialog
+         $SaveFileDialog.initialDirectory = $initialDirectory
+         $SaveFileDialog.filter = “CSV Files (*.csv)|*.csv|All files (*.*)|*.*”
+         $SaveFileDialog.ShowDialog() | Out-Null
+         $SaveFileDialog.filename
+        } 
+
+        #end function Get-SaveFileName
